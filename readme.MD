@@ -1,4 +1,4 @@
-# 🛡️ X-Shield (Xray Multi-Protocol Deployment Script)
+# 🛡️ X-Shield (Xray 极速/防QoS/抗封锁 组合方案)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20VPS-blue)](https://www.linux.org)
@@ -26,9 +26,18 @@
 | **VLESS + TCP + REALITY** | 无域名要求，完美防封锁，伪装度 100% | 高抗封锁需求、追求稳定长期连线 |
 
 ---
+## 💻 系统支持
 
+本脚本适配主流 Linux 发行版，建议在全新干净的系统上运行：
+
+| 系统平台 | 最低版本要求 | 状态 / 备注 |
+| :--- | :--- | :--- |
+| **Ubuntu** | 20.04+ | ✅ 完美支持（推荐） |
+| **Debian** | 11+ | ✅ 完美支持（推荐） |
+| **CentOS** | 7 / 8 / 9 Stream | ✅ 支持（自动适配防火墙） |
+| **Alpine** | 3.16+ | ✅ 支持（基于 musl 静态编译运行） |
 ## ⚙️ 快速安装
-
+---
 使用 SSH 登录您的 Linux VPS（推荐 Ubuntu 20.04+ / Debian 11+），以 `root` 权限运行以下安装命令：
 
 ```bash
