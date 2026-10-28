@@ -1,10 +1,14 @@
-# 🛡️ X-Shield (Xray 极速/防QoS/抗封锁 组合方案)
+# 🛡️ X-Shield (Xray-XHTTP 极速/防QoS/抗封锁 组合方案)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20VPS-blue)](https://www.linux.org)
-[![Protocol](https://img.shields.io/badge/Xray-Core-orange)](https://github.com/XTLS/Xray-core)
+<p align="left">
+  <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
+  <img src="https://img.shields.io/badge/Debian-11%2B-A81D33?style=flat-square&logo=debian&logoColor=white" alt="Debian">
+  <img src="https://img.shields.io/badge/CentOS-7%2F8%2F9-26252D?style=flat-square&logo=centos&logoColor=white" alt="CentOS">
+  <img src="https://img.shields.io/badge/Alpine-Linux-0D5BE1?style=flat-square&logo=alpine&logoColor=white" alt="Alpine">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License">
+</p>
 
-一个现代化、高性能的 **Xray** 一键部署与管理脚本。本方案专为高强度网络审查环境设计，完美整合了 **XHTTP（H2/H3）**、**Cloudflare Argo 隧道** 以及 **VLESS-TCP-REALITY**，兼顾极端抗封锁能力与极致访问速度。
+ **Xray-XHTTP** 一键部署与管理脚本。为高强度网络审查环境设计，整合了 **XHTTP（H3直连）**、**XHTTP-Argo 隧道** 以及 **VLESS-TCP-REALITY**，兼顾极端抗封锁能力与极致访问速度。
 
 ---
 
