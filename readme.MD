@@ -8,7 +8,9 @@
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License">
 </p>
 
- **Xray-XHTTP** 一键部署与管理脚本。为高强度网络审查环境设计，整合了 **XHTTP（H3直连）**、**XHTTP-Argo 双模UDP隧道** 以及 **VLESS-TCP-REALITY Vision**，兼顾极速+极端抗封锁能力。
+ **Xray-XHTTP** 一键部署脚本。为高强度网络审查环境设计。
+整合 ：**XHTTP（H3直连）**、**XHTTP-Argo 双模UDP隧道** 以及 **VLESS-TCP-REALITY Vision**
+兼顾极速+抗封锁能力。
 
 ---
 
@@ -42,6 +44,13 @@
 ## ⚙️ 一键安装
 ---
 使用 SSH 登录，以 `root` 权限运行以下指令（如需设置变量，建议先复制到记事本，再编辑使用）：
+
+```bash
+bash <(curl -Ls [https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh](https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)) 
+
+---
+
+## ⚙️ 一键卸载
 
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh](https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)) 
