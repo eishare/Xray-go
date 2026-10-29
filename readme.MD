@@ -50,13 +50,13 @@
 | **Alpine** | 3.16+ | ✅ 支持（基于 musl 静态编译运行） |
 <br>
 
-极简Ubuntu一键更新：
+**极简Ubuntu一键更新：**
 ```bash
 apt update && apt install -y curl bash
 ```
 <br>
 
-Alpine一键更新：
+**Alpine一键更新：**
 
 ```bash
 apk update && apk add curl bash
