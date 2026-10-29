@@ -1,5 +1,5 @@
 # <p align="center">
-  <img src="https://raw.githubusercontent.com/eishare/Xray-go/main/logo.png" alt="Xray-go Logo" width="120">
+  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="120">
 </p>
 Xray-go 极速/防QoS/抗封锁 组合部署方案
 
