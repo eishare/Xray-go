@@ -6,7 +6,7 @@
 
 **Xray-go 极速/防QoS/抗封锁 部署方案**：
 <br>
-**XHTTP（H3直连）**、**XHTTP-Argo 双模UDP隧道** 、 **VLESS-TCP-REALITY Vision**
+**XHTTP（H3直连）**/**XHTTP-Argo 双模UDP隧道** / **VLESS-TCP-REALITY Vision**
 
 
 
