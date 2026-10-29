@@ -34,8 +34,8 @@
 
 | 系统平台 | 版本要求 | 状态 / 备注 |
 | :--- | :--- | :--- |
-| **Ubuntu** | 20.04+ | ✅ 完美支持 |
-| **Debian** | 11+ | ✅ 完美支持 |
+| **Ubuntu** | 20.04+ | ✅ 支持 |
+| **Debian** | 11+ | ✅ 支持 |
 | **CentOS** | 7 / 8 / 9 Stream | ✅ 支持（自动适配防火墙） |
 | **Alpine** | 3.16+ | ✅ 支持（基于 musl 静态编译运行） |
 
@@ -46,10 +46,9 @@
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh](https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)) 
 ---
-
-
 ## 🗑️ 一键卸载
 ---
+
 不符合预期？请使用以下指令一键卸载：
 
 ```bash
