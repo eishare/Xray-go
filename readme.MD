@@ -89,10 +89,10 @@ argo protocol **"quic"** = 默认部署quic隧道+1条连接；可改成http2，
 port **"8001"** = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
 <br>
 
-domain **""** = Cloudflare Tunnel 路由设置的完整主机名
+domain **"填入主机名"** = Cloudflare Tunnel 路由设置的完整主机名
 <br>
 
-token **""** = 固定隧道 Token
+token **"填入token"** = 固定隧道 Token
 <br>
 
 ---
