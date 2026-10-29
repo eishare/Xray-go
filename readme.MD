@@ -47,20 +47,20 @@
 | **CentOS** | 7 / 8 / 9 Stream | ✅ 支持（自动适配防火墙） |
 | **Alpine** | 3.16+ | ✅ 支持（基于 musl 静态编译运行） |
 
-> ## ⚙️ 快速安装
->
-> 使用 SSH 登录服务器，以 `root` 权限运行以下指令（如需设置环境变量，建议先复制到本地文本编辑器中修改）：
->
-> ```bash
-> bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)
-> ```
->
-> ---
->
-> ## 🗑️ 一键卸载
->
-> 如果不再需要本工具，可以使用以下指令进行清理与卸载：
->
-> ```bash
-> bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh) uninstall
-> ```
+## ⚙️ 快速安装
+
+使用 SSH 登录服务器，以 `root` 权限运行以下指令（如需设置变量，建议先复制到记事本中再修改）：
+
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)
+ ```
+
+---
+
+ ## 🗑️ 一键卸载
+
+部署方案未达预期？请使用以下指令卸载：
+
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh) uninstall
+```
