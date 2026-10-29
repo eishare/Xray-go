@@ -1,10 +1,15 @@
-<div style="display: flex; align-items: center; gap: 28px; margin: 28px 0;">
-  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="120" style="display: block; border-radius: 14px; flex-shrink: 0;">
-  <span style="font-size: 36px; font-weight: 800; white-space: nowrap; line-height: 1.2;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
-</div>
+<table style="border: none; border-collapse: collapse; background: transparent; margin: 20px 0;">
+  <tr>
+    <td style="border: none; padding: 0 24px 0 0; vertical-align: middle;">
+      <img src="https://raw.githubusercontent.com/eishare/X-Shield/main/logo.png" alt="Xray-go Logo" width="110" style="display: block; border-radius: 12px;">
+    </td>
+    <td style="border: none; padding: 0; vertical-align: middle;">
+      <span style="font-size: 32px; font-weight: 850; color: #24292e; white-space: nowrap; line-height: 1.3;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
+    </td>
+  </tr>
+</table>
 
-
-<p align="left">
+<p align="left" style="margin-top: 16px;">
   <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
   <img src="https://img.shields.io/badge/Debian-11%2B-A81D33?style=flat-square&logo=debian&logoColor=white" alt="Debian">
   <img src="https://img.shields.io/badge/CentOS-7%2F8%2F9-26252D?style=flat-square&logo=centos&logoColor=white" alt="CentOS">
@@ -13,7 +18,6 @@
 </p>
 
 包含 ：**XHTTP（H3直连）**、**XHTTP-Argo 双模UDP隧道** 、 **VLESS-TCP-REALITY Vision**，兼顾极速+防QoS+抗封锁。
-
 ---
 
 ## 🚀 核心特性
