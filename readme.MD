@@ -63,6 +63,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield
 末尾"变量"填写说明：
 
 <br>
+
 **reality"y"** = 部署+随机端口；reality"12345" = 部署在12345端口；reality"n" = 放弃部署；
 <br>
 
