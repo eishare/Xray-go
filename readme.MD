@@ -77,7 +77,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.s
 
 <br>
 
-h3**"y"** = 部署 XHTTP H3 直连协议+随机端口； **h3"12345"** = XHTTP H3 部署在12345端口； **h3"n"** =  XHTTP H3 放弃部署
+h3 **"y"** = 部署 XHTTP H3 直连协议+随机端口； h3 **"12345"** = XHTTP H3 部署在12345端口； h3 **"n"** =  XHTTP H3 放弃部署
 <br>
 
 reality**"y"** = 部署 reality 协议+随机端口； **其余规则同上**
