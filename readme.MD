@@ -58,7 +58,7 @@
 使用 SSH 登录服务器，以 `root` 权限运行以下指令（如需设置变量，建议先复制到记事本中再修改）：
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh) reality"y" h3"y" argo protocol"quic" port"8001" domain"" token""
+bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.sh) reality"y" h3"y" argo protocol"quic" port"8001" domain"" token""
  ```
 <br>
 
@@ -91,5 +91,5 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield
 部署方案未达预期？请使用以下指令卸载：
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh) uninstall
+bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall.sh)
 ```
