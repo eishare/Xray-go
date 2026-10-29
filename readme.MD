@@ -64,9 +64,6 @@ apk update && apk add curl bash
 <br>
 
 
-<br>
-
-
 ## ⚙️ 快速安装
 
 使用 SSH 登录服务器，以 `root` 权限运行以下指令（如需设置变量，建议先复制到记事本中再修改）：
