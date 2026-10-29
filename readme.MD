@@ -1,9 +1,9 @@
 <div style="display: flex; align-items: center; gap: 16px; border: none; background: transparent; padding: 0;">
   <div>
-    <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="300" style="display: block;">
+    <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="200" style="display: block;">
   </div>
   <div>
-    <h1 style="margin: 0; border: none; font-size: 28px;">Xray-go 极速/防QoS/抗封锁 组合部署方案</h1>
+    <h1 style="margin: 0; border: none; font-size: 28px;">Xray-go 极速/防QoS/抗封锁 部署方案</h1>
   </div>
 </div>
 
