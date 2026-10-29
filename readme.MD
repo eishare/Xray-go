@@ -1,12 +1,11 @@
 <div style="display: flex; align-items: center; gap: 24px; margin: 30px 0 20px 0;">
   <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="110" style="display: block; border-radius: 14px; flex-shrink: 0; border: none;">
   <div style="font-size: 34px; font-weight: 900; line-height: 1.25; color: #24292e;">
-    Xray-go 极速/防QoS/抗封锁 部署方案
   </div>
 </div>
 
 
-包含 ：**XHTTP（H3直连）**、**XHTTP-Argo 双模UDP隧道** 、 **VLESS-TCP-REALITY Vision**，兼顾极速+防QoS+抗封锁。
+Xray-go **极速/防QoS/抗封锁** 部署方案 ：**XHTTP（H3直连）**、**XHTTP-Argo 双模UDP隧道** 、 **VLESS-TCP-REALITY Vision**
 
 
 <p align="left" style="margin: 20px 0 16px 0;">
