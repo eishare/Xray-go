@@ -1,6 +1,5 @@
 # <p align="center">
-  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="120">
-</p>Xray-go 极速/防QoS/抗封锁 组合部署方案
+  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="120"> </p> Xray-go 极速/防QoS/抗封锁 组合部署方案
 
 <p align="left">
   <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
