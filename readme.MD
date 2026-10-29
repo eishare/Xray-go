@@ -50,7 +50,9 @@ bash <(curl -Ls [https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shiel
 
 ---
 
-## ⚙️ 一键卸载
 
+## ⚙️ 一键卸载
+```
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh](https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)) 
+---
