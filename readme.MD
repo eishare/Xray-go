@@ -40,14 +40,15 @@
 | **Alpine** | 3.16+ | ✅ 支持（基于 musl 静态编译运行） |
 
 ## ⚙️ 快速安装
----
+
 使用 SSH 登录，以 `root` 权限运行以下指令（如需设置变量，建议先复制到记事本，再编辑使用）：
 
 ```bash
 bash <(curl -Ls [https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh](https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)) 
 ---
+
 ## 🗑️ 一键卸载
----
+
 
 不符合预期？请使用以下指令一键卸载：
 
