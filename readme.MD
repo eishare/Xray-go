@@ -66,7 +66,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield
 
 <br>
 
-**reality"y"** = 部署+随机端口；reality"12345" = 部署在12345端口；reality"n" = 放弃部署；
+**reality"y"** = 部署+随机端口；**reality"12345"** = 部署在12345端口；**reality"n"** = 放弃部署；
 <br>
 
 **argo protocol"quic"** = 默认部署quic隧道+1条连接；可改成http2，默认4条连接；
