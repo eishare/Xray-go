@@ -64,7 +64,9 @@ apk update && apk add curl bash
 <br>
 
 **✅已添加Cloudflare代理下载，完美支持IPv6机型**
+
 <br>
+
 
 ## ⚙️ 快速安装
 
