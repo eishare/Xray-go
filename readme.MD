@@ -1,10 +1,10 @@
-<table align="center" border="0">
+<table style="border: none; border-collapse: collapse; background: transparent;">
   <tr>
-    <td align="center" style="vertical-align: middle; border: none; padding-right: 20px;">
-      <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="100">
+    <td style="border: none; padding: 0 16px 0 0; vertical-align: middle;">
+      <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="200">
     </td>
-    <td align="left" style="vertical-align: middle; border: none;">
-      <h2>Xray-go 极速/防QoS/抗封锁 组合部署方案</h2>
+    <td style="border: none; padding: 0; vertical-align: middle;">
+      <h1 style="margin: 0; border: none;">Xray-go 极速/防QoS/抗封锁 组合部署方案</h1>
     </td>
   </tr>
 </table>
