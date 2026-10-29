@@ -58,15 +58,18 @@
 使用 SSH 登录服务器，以 `root` 权限运行以下指令（如需设置变量，建议先复制到记事本中再修改）：
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh) reality"y" h3"y" argo protocol"quic" port"8001" domain"" token""
  ```
 <br>
 
-**末尾"变量"填写说明：**
+**末尾""双引号中 变量填写说明：**
 
 <br>
 
-**reality"y"** = 部署+随机端口；**reality"12345"** = 部署在12345端口；**reality"n"** = 放弃部署；
+**reality"y"** = 部署reality协议+随机端口；**reality"12345"** = 部署在12345端口；**reality"n"** = 放弃部署
+<br>
+
+**h3"y"** = 部署XHTTP H3直连协议+随机端口，其余规则同上
 <br>
 
 **argo protocol"quic"** = 默认部署quic隧道+1条连接；可改成http2，默认4条连接；
