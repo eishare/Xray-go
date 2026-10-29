@@ -66,13 +66,13 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield
 
 <br>
 
-**reality"y"** = 部署reality协议+随机端口；**reality"12345"** = 部署在12345端口；**reality"n"** = 放弃部署
+**reality"y"** = 部署reality协议+随机端口； **reality"12345"** = 部署在12345端口； **reality"n"** = 放弃部署
 <br>
 
-**h3"y"** = 部署XHTTP H3直连协议+随机端口，其余规则同上
+**h3"y"** = 部署XHTTP H3直连协议+随机端口； **其余规则同上**
 <br>
 
-**argo protocol"quic"** = 默认部署quic隧道+1条连接；可改成http2，默认4条连接；
+**argo protocol"quic"** = 默认部署quic隧道+1条连接；可改成http2，默认4条连接
 <br>
 
 **port"8001"** = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
