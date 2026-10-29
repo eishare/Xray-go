@@ -1,7 +1,7 @@
 <table style="border: none; border-collapse: collapse; background: transparent; margin: 20px 0;">
   <tr>
     <td style="border: none; padding: 0 24px 0 0; vertical-align: middle;">
-      <img src="https://raw.githubusercontent.com/eishare/X-Shield/main/logo.png" alt="Xray-go Logo" width="110" style="display: block; border-radius: 12px;">
+      <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="110" style="display: block; border-radius: 12px;">
     </td>
     <td style="border: none; padding: 0; vertical-align: middle;">
       <span style="font-size: 32px; font-weight: 850; color: #24292e; white-space: nowrap; line-height: 1.3;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
