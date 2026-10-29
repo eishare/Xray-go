@@ -1,6 +1,6 @@
-<div style="display: flex; align-items: center; gap: 16px;">
-  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="80" style="display: block; margin: 0;">
-  <span style="font-size: 26px; font-weight: bold;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="64" style="display: block; margin: 0; border-radius: 8px;">
+  <span style="font-size: 24px; font-weight: 700; line-height: 1.2;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
 </div>
 
 <p align="left">
