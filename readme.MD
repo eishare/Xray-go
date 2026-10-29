@@ -4,7 +4,7 @@
   </div>
 </div>
 
-## Xray-go **极速/防QoS/抗封锁** 部署方案 ：
+** Xray-go **极速/防QoS/抗封锁** 部署方案 ：
  **XHTTP（H3直连）**、**XHTTP-Argo 双模UDP隧道** 、 **VLESS-TCP-REALITY Vision**
 
 
@@ -46,6 +46,8 @@
 | **Debian** | 11+ | ✅ 支持 |
 | **CentOS** | 7 / 8 / 9 Stream | ✅ 支持（自动适配防火墙） |
 | **Alpine** | 3.16+ | ✅ 支持（基于 musl 静态编译运行） |
+
+**设置Cloudflare代理下载，完美支持IPv6机型**
 
 ## ⚙️ 快速安装
 
