@@ -73,7 +73,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.s
  ```
 <br>
 
-**末尾""双引号中 变量填写说明：**
+💡 **末尾""双引号中 变量填写说明：**
 
 <br>
 
