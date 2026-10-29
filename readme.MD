@@ -1,9 +1,9 @@
-<table style="border: none !important; border-collapse: collapse !important; background: transparent !important; margin: 20px 0;">
+<table border="0" cellpadding="0" cellspacing="0" style="border: none !important; border-collapse: collapse !important; border-spacing: 0 !important; background: transparent !important; margin: 20px 0;">
   <tr style="border: none !important; background: transparent !important;">
-    <td style="border: none !important; padding: 0 28px 0 0; vertical-align: middle; background: transparent !important;">
-      <img src="https://raw.githubusercontent.com/eishare/X-Shield/main/logo.png" alt="Xray-go Logo" width="130" style="display: block; border-radius: 14px;">
+    <td style="border: none !important; border-width: 0 !important; padding: 0 28px 0 0; vertical-align: middle; background: transparent !important;">
+      <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="130" style="display: block; border-radius: 14px; border: none;">
     </td>
-    <td style="border: none !important; padding: 0; vertical-align: middle; background: transparent !important;">
+    <td style="border: none !important; border-width: 0 !important; padding: 0; vertical-align: middle; background: transparent !important;">
       <span style="font-size: 38px; font-weight: 900; color: #24292e; white-space: nowrap; line-height: 1.2;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
     </td>
   </tr>
