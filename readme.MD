@@ -5,7 +5,8 @@
 </div>
 <br>
 
-## Xray-go 极速/防QoS/抗封锁 部署方案：**XHTTP（H3直连）**/ **XHTTP-Argo 双模UDP隧道** / **VLESS-TCP-REALITY Vision**
+## Xray-go 极速/防QoS/抗封锁 部署方案
+**XHTTP（H3直连）**/ **XHTTP-Argo 双模UDP隧道** / **VLESS-TCP-REALITY Vision**
 
 <br>
 
