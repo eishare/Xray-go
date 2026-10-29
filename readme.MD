@@ -1,11 +1,8 @@
-<p align="left">
-  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="120" align="left" style="margin-right: 24px; border-radius: 14px;">
-  <span style="display: inline-block; font-size: 38px; font-weight: 900; line-height: 120px; color: #24292e;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
-</p>
+# <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="100" align="left" style="margin-right: 18px; border-radius: 12px;"> Xray-go 极速/防QoS/抗封锁 部署方案
 
 <br clear="all"/>
 
-<p align="left" style="margin-top: 16px;">
+<p align="left">
   <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
   <img src="https://img.shields.io/badge/Debian-11%2B-A81D33?style=flat-square&logo=debian&logoColor=white" alt="Debian">
   <img src="https://img.shields.io/badge/CentOS-7%2F8%2F9-26252D?style=flat-square&logo=centos&logoColor=white" alt="CentOS">
