@@ -7,7 +7,9 @@
 
 ## Xray-go 极速/防QoS/抗封锁 部署方案 （VPS服务器版）
 **XHTTP（H3直连）**/ **XHTTP-Argo 双模UDP隧道** / **VLESS-TCP-REALITY Vision**
+<br>
 
+**✅已添加Cloudflare代理下载，完美支持IPv6机型**
 <br>
 
 <p align="left" style="margin: 20px 0 16px 0;">
@@ -62,7 +64,6 @@ apk update && apk add curl bash
 ```
 <br>
 
-**✅已添加Cloudflare代理下载，完美支持IPv6机型**
 
 <br>
 
