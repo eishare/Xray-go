@@ -1,13 +1,11 @@
-<table style="border: none; border-collapse: collapse; background: transparent;">
-  <tr>
-    <td style="border: none; padding: 0 16px 0 0; vertical-align: middle;">
-      <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="200">
-    </td>
-    <td style="border: none; padding: 0; vertical-align: middle;">
-      <h1 style="margin: 0; border: none;">Xray-go 极速/防QoS/抗封锁 组合部署方案</h1>
-    </td>
-  </tr>
-</table>
+<div style="display: flex; align-items: center; gap: 16px; border: none; background: transparent; padding: 0;">
+  <div>
+    <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="300" style="display: block;">
+  </div>
+  <div>
+    <h1 style="margin: 0; border: none; font-size: 28px;">Xray-go 极速/防QoS/抗封锁 组合部署方案</h1>
+  </div>
+</div>
 
 <p align="left">
   <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
