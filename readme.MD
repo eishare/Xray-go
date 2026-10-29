@@ -26,8 +26,7 @@
 *   **⚡ XHTTP H3 直连**：上下行流量分离，使用 HTTP/3 标准UDP传输，实现极低延迟与高并发吞吐。速度对标TUIC协议，但不易被运营商QoS。
 *   **☁️ Argo 双模UDP隧道**：隧道protocol选择quic，客户端设置H3，让Argo隧道全段跑UDP！服务器 IP 隐藏、Cloudflare CDN 加速及零端口暴露。
 *   **🔒 VLESS-TCP-REALITY Vision**：经典抗封锁协议，完美伪装 TLS 流量，Vision流控，免疫主动探测。
-<br>
-**✅已添加Cloudflare代理下载，完美支持IPv6机型**
+*   **✅ 已设置备选Cloudflare代理下载，完美支持IPv6机型。
 
 ---
 
