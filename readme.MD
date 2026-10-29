@@ -77,22 +77,22 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.s
 
 <br>
 
-h3 **"y"** = 部署 XHTTP H3 直连协议+随机端口； h3 **"12345"** = XHTTP H3 部署在12345端口； h3 **"n"** =  XHTTP H3 放弃部署
+**h3"y"** = 部署 XHTTP H3 直连协议+随机端口； **h3"12345"** = XHTTP H3 部署在12345端口； **h3"n"** =  XHTTP H3 放弃部署
 <br>
 
-reality **"y"** = 部署 reality 协议+随机端口； **其余规则同上**
+**reality"y"** = 部署 reality 协议+随机端口； **其余规则同上**
 <br>
 
-argo protocol **"quic"** = 默认部署quic隧道+1条连接；可改成http2，默认4条连接
+**argo protocol"quic"** = 默认部署quic隧道+1条连接；可改成http2，默认4条连接
 <br>
 
-port **"8001"** = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
+**port"8001"** = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
 <br>
 
-domain **"填入主机名"** = Cloudflare Tunnel 路由设置的完整主机名
+**domain""** = Cloudflare Tunnel 路由设置的完整主机名
 <br>
 
-token **"填入token"** = 固定隧道 Token
+**token ""** = 固定隧道 Token
 <br>
 
 ---
