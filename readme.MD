@@ -1,4 +1,13 @@
-# <p align="center"> <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="120"> </p> **Xray-go 极速/防QoS/抗封锁 组合部署方案**
+<table align="center" border="0">
+  <tr>
+    <td align="center" style="vertical-align: middle; border: none; padding-right: 20px;">
+      <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="100">
+    </td>
+    <td align="left" style="vertical-align: middle; border: none;">
+      <h2>Xray-go 极速/防QoS/抗封锁 组合部署方案</h2>
+    </td>
+  </tr>
+</table>
 
 <p align="left">
   <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
