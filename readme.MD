@@ -1,12 +1,11 @@
-<div style="margin: 24px 0 32px 0;">
-  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="110" align="left" style="margin-right: 24px; border-radius: 12px;">
-  <div style="padding-top: 26px;">
-    <h1 style="margin: 0; border: none; font-size: 34px; font-weight: 800; line-height: 1.2;">Xray-go 极速/防QoS/抗封锁 部署方案</h1>
+<div style="display: flex; align-items: center; gap: 24px; margin: 30px 0 20px 0;">
+  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="110" style="display: block; border-radius: 14px; flex-shrink: 0; border: none;">
+  <div style="font-size: 34px; font-weight: 900; line-height: 1.25; color: #24292e;">
+    Xray-go 极速/防QoS/抗封锁 部署方案
   </div>
 </div>
-<br clear="all"/>
 
-<p align="left" style="margin-top: 20px;">
+<p align="left" style="margin: 20px 0 16px 0;">
   <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
   <img src="https://img.shields.io/badge/Debian-11%2B-A81D33?style=flat-square&logo=debian&logoColor=white" alt="Debian">
   <img src="https://img.shields.io/badge/CentOS-7%2F8%2F9-26252D?style=flat-square&logo=centos&logoColor=white" alt="CentOS">
