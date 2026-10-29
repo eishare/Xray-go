@@ -66,7 +66,7 @@ apk update && apk add curl bash
 
 ## ⚙️ 快速安装
 
-使用 SSH 登录服务器，以 `root` 权限运行以下指令**（如需设置变量，建议先复制到记事本中再修改）**：
+使用 SSH 登录服务器，以 `root` 权限运行以下指令 **（如需设置变量，建议先复制到记事本中再修改）**：
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.sh) h3"y" reality"y" argo protocol"quic" port"8001" domain"" token""
