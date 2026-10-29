@@ -1,7 +1,8 @@
-<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
-  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="200" style="display: block; margin: 0; border-radius: 8px;">
-  <span style="font-size: 24px; font-weight: 700; line-height: 1.2;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
+<div style="display: flex; align-items: center; gap: 18px; margin-bottom: 20px;">
+  <img src="https://github.com/eishare/X-Shield/blob/main/logo.png" alt="Xray-go Logo" width="96" style="display: block; margin: 0; border-radius: 10px;">
+  <span style="font-size: 30px; font-weight: 800; line-height: 1.2;">Xray-go 极速/防QoS/抗封锁 部署方案</span>
 </div>
+
 
 <p align="left">
   <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
