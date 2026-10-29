@@ -36,7 +36,7 @@
 | :--- | :--- | :--- |
 | **XHTTP + H3 (QUIC)** | ✅HTTP/3 标准 UDP 传输，不易被QoS | 主力高速直连协议 |
 | **XHTTP + Argo 双模UDP隧道** | ✅Argo隧道变身UDP协议！隐藏真实 IP，内网穿透，支持优选域名/ip | IP 被墙或极限封锁网络环境 |
-| **VLESS + TCP + REALITY** | ✅无域名要求，完美伪装防封锁 | 晚高峰易受TCP拥塞影响，建议备选 |
+| **VLESS + TCP + REALITY Vision** | ✅无域名要求，完美伪装防封锁 | 晚高峰易受TCP拥塞影响，建议备选 |
 
 ---
 ## 💻 系统支持
@@ -60,7 +60,18 @@
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/eishare/X-Shield/main/X-Shield.sh)
  ```
-
+末尾"变量"设置说明：
+<br>
+reality"y" = 部署+随机端口；reality"12345" = 部署在12345端口；reality"n" = 放弃部署；
+<br>
+argo protocol"quic" = 默认部署quic隧道+1条连接；可改成http2，默认4条连接；
+<br>
+port"8001" = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
+<br>
+domain"" = Cloudflare Tunnel 路由设置的完整主机名
+<br>
+token"" = 固定隧道 Token
+<br>
 ---
 
  ## 🗑️ 一键卸载
