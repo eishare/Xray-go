@@ -285,6 +285,7 @@ After=network.target nss-lookup.target
 User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+Environment="GODEBUG=madvdontneed=1,netdns=go"
 ExecStart=${work_dir}/xray run -config ${work_dir}/config.json
 Restart=on-failure
 RestartSec=10
@@ -324,7 +325,7 @@ fi
 # 如果开启了 Argo，启动 cloudflared 后台进程
 if [ "$enable_argo" = true ]; then
     green "正在启动 Cloudflare Argo 固定隧道 (协议: ${argo_protocol}, 连接数: ${argo_connections})..."
-    nohup "${work_dir}/cloudflared" tunnel --no-autoupdate --retries 5 --grace-period 1s --no-prechecks --protocol "${argo_protocol}" --ha-connections "${argo_connections}" run --token "${argo_token}" > "${work_dir}/cloudflared.log" 2>&1 &
+    GODEBUG="madvdontneed=1,netdns=go" nohup "${work_dir}/cloudflared" tunnel --no-autoupdate --retries 5 --grace-period 1s --no-prechecks --protocol "${argo_protocol}" --ha-connections "${argo_connections}" run --token "${argo_token}" > "${work_dir}/cloudflared.log" 2>&1 &
 fi
 
 # 6. 放行对应的防火墙端口 (仅直连端口需要放行，Argo 不需要)
