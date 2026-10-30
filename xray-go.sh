@@ -309,6 +309,10 @@ command_background="yes"
 depend() {
     need net
 }
+start_pre() {
+    # 注入 Go 运行时优化环境变量，确保 Alpine 下也能生效
+    export GODEBUG="madvdontneed=1,netdns=go"
+}
 EOF
     chmod +x /etc/init.d/xray
     rc-update add xray default
