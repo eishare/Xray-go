@@ -69,7 +69,7 @@ apk update && apk add curl bash
 使用 SSH 登录服务器，以 `root` 权限运行以下指令 **（如需设置变量，建议先复制到记事本中再修改）**：
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.sh) h3"y" reality"y" argo protocol"quic" port"8001" domain"" token""
+bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.sh) h3"y" reality"y" argo protocol"http2" port"8001" domain"" token""
  ```
 <br>
 
@@ -83,7 +83,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.s
 **reality"y"** = 部署 reality 协议+随机端口； **其余规则同上**
 <br>
 
-**argo protocol"quic"** = 默认部署quic隧道+1条连接；可改成http2，默认4条连接
+**argo protocol"http2"** = 默认部署quic隧道+4条连接；可改成quic，默认1条连接
 <br>
 
 **port"8001"** = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
