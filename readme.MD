@@ -83,7 +83,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.s
 **h3"y"** = 部署 XHTTP H3 直连协议+随机端口； **h3"12345"** = XHTTP H3 部署在12345端口； **h3"n"** = 放弃部署 XHTTP H3 协议
 <br>
 
-**argo protocol"http2"** = 默认部署http2隧道+4条连接；可改成quic，默认1条连接 **（http2 或 quic 建议在实测后，择优选择）**
+**argo protocol"http2"** = 默认部署http2隧道+4条连接；可改成quic，默认1条连接 **（http2 还是 quic ？建议在实测后，择优选择）**
 <br>
 
 **port"8001"** = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
