@@ -385,5 +385,5 @@ green "$base64_str"
 green "=========================================================================================="
 
 
-echo " 一键卸载 (如需移除，请执行以下指令)："
-yellow " bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall.sh)"
+echo "一键卸载 (如需移除，请执行以下指令)："
+yellow "bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall.sh)"
