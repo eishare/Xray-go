@@ -7,7 +7,8 @@ red() { echo -e "\e[1;91m$1\033[0m"; }
 
 # Github Cloudflare安全代理
 GITHUB_PROXY=('https://ess.ieshare.workers.dev/')
-# 优先直连官方，失败后尝试代理
+
+# 优先直连官方，失败后自动切换代理（已增加 Zip 文件头真实性校验）
 download_file() {
     local output_path="$1"
     local official_url="$2"
@@ -15,18 +16,21 @@ download_file() {
     # 1. 尝试直连官方地址
     echo "连接Github官方源中..."
     if curl -sL --connect-timeout 5 --max-time 60 -o "$output_path" "$official_url"; then
-        if [ -s "$output_path" ]; then
+        # 严格校验：文件必须存在、有体积、且前两个字节必须是 Zip 的特征码 "PK"
+        if [ -s "$output_path" ] && head -c 2 "$output_path" | grep -q "PK"; then
             green "下载成功！"
             return 0
+        else
+            yellow "官方源下载的文件无效（可能是错误网页或超时页面），自动切换代理..."
         fi
     fi
     
-    # 2. 直连失败，轮询切换代理
+    # 2. 直连失败或文件无效，轮询切换 Cloudflare 安全代理
     yellow "Github连接失败，转向Cloudflare安全代理..."
     for proxy in "${GITHUB_PROXY[@]}"; do
         local proxy_url="${proxy}${official_url}"
         if curl -sL --connect-timeout 5 --max-time 60 -o "$output_path" "$proxy_url"; then
-            if [ -s "$output_path" ]; then
+            if [ -s "$output_path" ] && head -c 2 "$output_path" | grep -q "PK"; then
                 green "下载成功！"
                 return 0
             fi
@@ -385,5 +389,5 @@ green "$base64_str"
 green "=========================================================================================="
 
 
-echo "一键卸载 (如需移除，请执行以下指令)："
-yellow "bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall.sh)"
+echo " 一键卸载 (如需移除，请执行以下指令)："
+yellow " bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall.sh)"
