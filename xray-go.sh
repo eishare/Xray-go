@@ -175,7 +175,7 @@ echo "生成安全 UUID、自签证书及密钥对..."
 uuid=$(cat /proc/sys/kernel/random/uuid)
 h3_path="${uuid}-xu" 
 argo_path="${uuid}-argo"
-ym_vl_re="www.apple.com"
+ym_vl_re="addons.mozilla.org"
 
 # H3 自签证书
 openssl ecparam -genkey -name prime256v1 -out "${work_dir}/private.key"
