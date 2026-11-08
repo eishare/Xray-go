@@ -44,7 +44,6 @@ ARG_ARGO_PORT="8001"
 ARG_ARGO_DOMAIN=""
 ARG_ARGO_TOKEN=""
 
-
 # 智能解析复合与关键字参数
 for arg in "$@"; do
     clean_arg="${arg//\"/}"
@@ -220,7 +219,7 @@ if [ -n "$h3_port" ]; then
         \"network\": \"xhttp\",
         \"security\": \"tls\",
         \"xhttpSettings\": {
-          \"mode\": \"auto\",
+          \"mode\": \"packet-up\",
           \"path\": \"/$h3_path\"
         },
         \"tlsSettings\": {
@@ -380,7 +379,7 @@ base64_str=$(cat "${work_dir}/url.txt" | base64 | tr -d '\n' | tr -d '\r')
 
 clear
 green "=========================================================================================="
-green " Base64 节点链接 Xray-core "
+green "Base64 节点链接 Xray-core "
 green "=========================================================================================="
 green "$base64_str"
 green "=========================================================================================="
