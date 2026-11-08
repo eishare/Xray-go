@@ -5,35 +5,46 @@ green() { echo -e "\e[1;32m$1\033[0m"; }
 yellow() { echo -e "\e[1;33m$1\033[0m"; }
 red() { echo -e "\e[1;91m$1\033[0m"; }
 
-# Github Cloudflare安全代理
+# Cloudflare安全代理源（易分享自建）
 GITHUB_PROXY=('https://ess.ieshare.workers.dev/')
-# 优先直连官方，失败后尝试代理
+
 download_file() {
     local output_path="$1"
     local official_url="$2"
     
-    # 1. 尝试直连官方地址
-    echo "连接Github官方源中..."
-    if curl -sL --connect-timeout 5 --max-time 60 -o "$output_path" "$official_url"; then
-        if [ -s "$output_path" ]; then
-            green "下载成功！"
-            return 0
+    # 辅助校验函数：根据文件类型判断是否合法
+    validate_file() {
+        local path="$1"
+        if [[ "$path" == *.zip ]]; then
+            [ -s "$path" ] && head -c 2 "$path" | grep -q "PK"
+        else
+            local fsize=$(stat -c%s "$path" 2>/dev/null || stat -f%z "$path" 2>/dev/null || echo 0)
+            [ "$fsize" -gt 5000000 ]
         fi
-    fi
-    
-    # 2. 直连失败，轮询切换代理
-    yellow "Github连接失败，转向Cloudflare安全代理..."
+    }
+
+    # 1. 优先尝试通过 Cloudflare 代理下载
+    echo "正在通过Cloudflare安全代理下载..."
     for proxy in "${GITHUB_PROXY[@]}"; do
         local proxy_url="${proxy}${official_url}"
-        if curl -sL --connect-timeout 5 --max-time 60 -o "$output_path" "$proxy_url"; then
-            if [ -s "$output_path" ]; then
+        if curl -sL --retry 2 --connect-timeout 10 --max-time 90 -o "$output_path" "$proxy_url"; then
+            if validate_file "$output_path"; then
                 green "下载成功！"
                 return 0
             fi
         fi
     done
     
-    red "错误：官方源及镜像代理下载均告失败！"
+    # 2. 代理下载失败或校验不通过，切换直连官方源作
+    yellow "Cloudflare代理未响应，尝试直连 Github 官方源..."
+    if curl -sL --retry 2 --connect-timeout 10 --max-time 90 -o "$output_path" "$official_url"; then
+        if validate_file "$output_path"; then
+            green "下载成功！"
+            return 0
+        fi
+    fi
+    
+    red "错误：Cloudflare代理及官方源下载均告失败！"
     return 1
 }
 
