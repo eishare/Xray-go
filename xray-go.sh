@@ -44,19 +44,18 @@ ARG_ARGO_PORT="8001"
 ARG_ARGO_DOMAIN=""
 ARG_ARGO_TOKEN=""
 
+# 智能解析复合与关键字参数
 for arg in "$@"; do
     clean_arg="${arg//\"/}"
     clean_arg="${clean_arg//\'/}"
     
-    if [[ "$clean_arg" =~ ^[pP][oO][rR][tT]([0-9]+)$ ]]; then
-        ARG_ARGO_PORT="${BASH_REMATCH[1]}"
-    elif [[ "$clean_arg" =~ ^[hH]3(.*)$ ]]; then
+    if [[ "$clean_arg" =~ ^[hH]3(.*)$ ]]; then
         ARG_H3="${BASH_REMATCH[1]}"
     elif [[ "$clean_arg" =~ ^[rR][eE][aA][lL][iI][tT][yY](.*)$ ]]; then
         ARG_REALITY="${BASH_REMATCH[1]}"
     elif [[ "$clean_arg" =~ ^argo[pP][rR][oO][tT][oO][cC][oO][lL](.*)$ ]] || [[ "$clean_arg" =~ ^[pP][rR][oO][tT][oO][cC][oO][lL](.*)$ ]]; then
         ARG_ARGO_PROTOCOL="${BASH_REMATCH[1]}"
-    elif [[ "$clean_arg" =~ ^argo[pP][oO][rR][tT]([0-9]+)$ ]]; then
+    elif [[ "$clean_arg" =~ ^argo[pP][oO][rR][tT](.*)$ ]] || [[ "$clean_arg" =~ ^[pP][rR][oO][rR][tT](.*)$ ]]; then
         ARG_ARGO_PORT="${BASH_REMATCH[1]}"
     elif [[ "$clean_arg" =~ ^argo[dD][oO][mM][aA][iI][nN](.*)$ ]] || [[ "$clean_arg" =~ ^[dD][oO][mM][aA][iI][nN](.*)$ ]]; then
         ARG_ARGO_DOMAIN="${BASH_REMATCH[1]}"
