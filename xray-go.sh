@@ -23,23 +23,23 @@ download_file() {
         fi
     }
 
-    # 1. 镜像下载
+    # 1. 尝试通过 Cloudflare 代理下载
     echo "正在通过Cloudflare安全代理下载..."
     for proxy in "${GITHUB_PROXY[@]}"; do
         local proxy_url="${proxy}${official_url}"
-        if curl -sL --connect-timeout 5 --max-time 30 -o "$output_path" "$proxy_url"; then
+        if curl -sL --connect-timeout 10 --max-time 60 -o "$output_path" "$proxy_url"; then
             if validate_file "$output_path"; then
-                green "下载成功！"
+            green "下载成功！"
                 return 0
             fi
         fi
     done
     
-    # 2. 镜像若卡住或失败，瞬间切换官方源直连（同样 5 秒超时）
-    yellow "Cloudflare 响应超时，切换回官方源..."
-    if curl -sL --connect-timeout 5 --max-time 30 -o "$output_path" "$official_url"; then
+    # 2. 代理未响应，切换回官方源
+    echo "Cloudflare 响应超时，切换回官方源..."
+    if curl -sL --connect-timeout 10 --max-time 60 -o "$output_path" "$official_url"; then
         if validate_file "$output_path"; then
-            green "下载成功！"
+        green "下载成功！"
             return 0
         fi
     fi
