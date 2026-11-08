@@ -66,7 +66,7 @@ for arg in "$@"; do
         ARG_REALITY="${BASH_REMATCH[1]}"
     elif [[ "$clean_arg" =~ ^argo[pP][rR][oO][tT][oO][cC][oO][lL](.*)$ ]] || [[ "$clean_arg" =~ ^[pP][rR][oO][tT][oO][cC][oO][lL](.*)$ ]]; then
         ARG_ARGO_PROTOCOL="${BASH_REMATCH[1]}"
-    elif [[ "$clean_arg" =~ ^argo[pP][oO][rR][tT](.*)$ ]] || [[ "$clean_arg" =~ ^[pP][rR][oO][rR][tT](.*)$ ]]; then
+    elif [[ "$clean_arg" =~ ^argo[pP][oO][rR][tT](.*)$ ]] || [[ "$clean_arg" =~ ^[pP][oO][rR][tT](.*)$ ]]; then
         ARG_ARGO_PORT="${BASH_REMATCH[1]}"
     elif [[ "$clean_arg" =~ ^argo[dD][oO][mM][aA][iI][nN](.*)$ ]] || [[ "$clean_arg" =~ ^[dD][oO][mM][aA][iI][nN](.*)$ ]]; then
         ARG_ARGO_DOMAIN="${BASH_REMATCH[1]}"
