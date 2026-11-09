@@ -104,3 +104,15 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.s
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall.sh)
 ```
+
+---
+
+<details>
+<summary><b>⚖️ 免责声明 / Disclaimer (点击展开)</b></summary>
+
+1. **使用范围**：本项目仅供网络研究、技术交流与学习使用，**严禁用于任何商业用途或违法违规行为**。
+2. **合规提醒**：使用者须严格遵守当地法律法规。因违规使用产生的法律责任与开发者无关。
+3. **滥用风险**：请遵守各平台TOS，若因违规或滥用导致账号封禁、数据丢失等后果，由使用者自行承担。
+4. **开源约束**：任何人或组织在使用、二次开发或分发本项目时，即代表已知晓并同意本声明的所有条款。
+
+</details>
