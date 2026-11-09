@@ -116,3 +116,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall
 4. **开源约束**：任何人或组织在使用、二次开发或分发本项目时，即代表已知晓并同意本声明的所有条款。
 
 </details>
+
+### 🌟 数据趋势
+
+[![Stargazers over time](https://starchart.cc/eishare/Xray-go.svg?variant=adaptive)](https://starchart.cc/eishare/Xray-go)
