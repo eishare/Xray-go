@@ -117,6 +117,9 @@ bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall
 
 </details>
 
-### 🌟 数据趋势
 
-[![Stargazers over time](https://starchart.cc/eishare/Xray-go.svg?variant=adaptive)](https://starchart.cc/eishare/Xray-go)
+---
+
+### 📈 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=eishare/Xray-go&type=Date)](https://star-history.com/#eishare/Xray-go&Date)
