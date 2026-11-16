@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xray-go 快速一键部署</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+        :root {
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent: #0071e3;
+            --accent-hover: #0077ed;
+            --border: #d2d2d7;
+            --radius: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px 16px 16px;
+            background: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 18px 28px;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            border-top: none;
+        }
+
+        .header-box {
+            margin-bottom: 12px;
+        }
+
+        .title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .title-row img {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text-main);
+        }
+
+        p.desc {
+            color: var(--text-secondary);
+            font-size: 12.5px;
+            margin: 0;
+            line-height: 1.3;
+            text-align: left;
+        }
+
+        .protocols-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 12px;
+            align-items: start;
+        }
+
+        .protocol-section {
+            background: #fafafc;
+            border: 1px solid #e8e8ed;
+            border-radius: 9px;
+            padding: 10px 14px;
+            transition: all 0.2s ease;
+        }
+
+        .protocol-section:hover {
+            border-color: #c7c7cc;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--text-main);
+            user-select: none;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .sub-options {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #e8e8ed;
+            display: none;
+        }
+
+        .protocol-section.active .sub-options {
+            display: block;
+        }
+
+        .row-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .row-grid + .row-grid {
+            margin-top: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        label.field-label {
+            display: block;
+            margin-bottom: 3px;
+            font-weight: 500;
+            font-size: 11.5px;
+            color: var(--text-secondary);
+        }
+
+        /* 必填项黄底高亮样式 */
+        .badge-req {
+            background-color: #fef08a;
+            color: #854d0e;
+            padding: 0 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .proto-port-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            background: #ffffff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            height: 32px;
+            box-sizing: border-box;
+        }
+
+        .proto-port-box label {
+            display: inline-flex;
+            align-items: center;
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .proto-port-box input[type="checkbox"] {
+            margin-right: 5px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .proto-port-box input[type="text"] {
+            width: 100px;
+            padding: 3px 6px;
+            font-size: 11.5px;
+            height: 22px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: #fcfcfd;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            height: 32px;
+            padding: 4px 8px;
+            box-sizing: border-box;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 12px;
+            background: #fff;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus, .proto-port-box:focus-within {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12);
+        }
+
+        .output-box {
+            margin-top: 10px;
+            border-top: 1px solid #e8e8ed;
+            padding-top: 10px;
+        }
+
+        pre {
+            background: #1d1d1f;
+            color: #f5f5f7;
+            padding: 10px 14px;
+            border-radius: 7px;
+            overflow-x: auto;
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace;
+            font-size: 11.5px;
+            line-height: 1.4;
+            word-break: break-all;
+            white-space: pre-wrap;
+            margin-bottom: 10px;
+        }
+
+        .btn-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .toast {
+            position: absolute;
+            left: 100%;
+            margin-left: 10px;
+            white-space: nowrap;
+            font-size: 12.5px;
+            color: #34c759;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
+            .protocols-grid {
+                grid-template-columns: 1fr;
+            }
+            .row-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-box">
+        <div class="title-row">
+            <img src="logo.png" alt="Xray-go Logo">
+            <h2>Xray-go 快速一键部署</h2>
+        </div>
+        <p class="desc">勾选协议并设置变量 即时生成一键安装命令</p>
+    </div>
+    
+    <div class="protocols-grid">
+        
+        <!-- 1. NaiveProxy -->
+        <div class="protocol-section" data-sec="naive">
+            <label class="checkbox-label">
+                <input type="checkbox" id="chkNaive" class="proto-toggle"> 1. NaiveProxy
+            </label>
+            <div class="sub-options">
+                <div class="row-grid">
+                    <div class="form-group">
+                        <label class="field-label">H2（TCP协议）</label>
+                        <div class="proto-port-box">
+                            <label><input type="checkbox" id="naiveH2" checked> H2</label>
+                            <input type="text" id="naiveH2Port" placeholder="留空：端口随机">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">域名（<span class="badge-req">必填</span> CF灰云/ 可与XHTTP共用域名）</label>
+                        <input type="text" id="naiveDomain" placeholder="naive.example.com">
+                    </div>
+                </div>
+                <div class="row-grid">
+                    <div class="form-group">
+                        <label class="field-label">H3（UDP协议）</label>
+                        <div class="proto-port-box">
+                            <label><input type="checkbox" id="naiveH3" checked> H3</label>
+                            <input type="text" id="naiveH3Port" placeholder="留空：端口随机">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">API（<span class="badge-req">必填</span> 可与XHTTP共用API）</label>
+                        <input type="text" id="naiveApi" placeholder="CF API Token">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. xHTTP 直连 -->
+        <div class="protocol-section" data-sec="xhttp">
+            <label class="checkbox-label">
+                <input type="checkbox" id="chkXhttp" class="proto-toggle"> 2. xHTTP 直连
+            </label>
+            <div class="sub-options">
+                <div class="row-grid">
+                    <div class="form-group">
+                        <label class="field-label">H2（TCP协议）</label>
+                        <div class="proto-port-box">
+                            <label><input type="checkbox" id="xhttpH2" checked> H2</label>
+                            <input type="text" id="xhttpH2Port" placeholder="留空：端口随机">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">域名（留空:自签证书;客户端须跳过验证）</label>
+                        <input type="text" id="xhttpDomain" placeholder="xhttp.example.com">
+                    </div>
+                </div>
+                <div class="row-grid">
+                    <div class="form-group">
+                        <label class="field-label">H3（UDP协议）</label>
+                        <div class="proto-port-box">
+                            <label><input type="checkbox" id="xhttpH3" checked> H3</label>
+                            <input type="text" id="xhttpH3Port" placeholder="留空：端口随机">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">API（留空:自签证书;客户端须跳过验证）</label>
+                        <input type="text" id="xhttpApi" placeholder="CF API Token">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. xHTTP-Argo -->
+        <div class="protocol-section" data-sec="argo">
+            <label class="checkbox-label">
+                <input type="checkbox" id="chkArgo" class="proto-toggle"> 3. xHTTP-Argo
+            </label>
+            <div class="sub-options">
+                <div class="row-grid">
+                    <div class="form-group">
+                        <label class="field-label">Protocol（<span class="badge-req">必填</span> CF 与服务器连接协议）</label>
+                        <select id="argoProtocol">
+                            <option value="http2" selected>http2</option>
+                            <option value="quic">quic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">Argo 域名（<span class="badge-req">必填</span>）</label>
+                        <input type="text" id="argoDomain" placeholder="argo.example.com">
+                    </div>
+                </div>
+                <div class="row-grid" style="margin-top: 8px;">
+                    <div class="form-group">
+                        <label class="field-label">CF 服务URL端口（<span class="badge-req">必填</span>）</label>
+                        <input type="text" id="argoPort" value="8001">
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">Token（<span class="badge-req">必填</span>）</label>
+                        <input type="text" id="argoToken" placeholder="Tunnel Token">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. VLESS-TCP-Reality -->
+        <div class="protocol-section" data-sec="reality">
+            <label class="checkbox-label">
+                <input type="checkbox" id="chkReality" class="proto-toggle"> 4. VLESS-TCP-Reality
+            </label>
+            <div class="sub-options">
+                <div class="form-group" style="margin-bottom: 8px;">
+                    <label class="field-label">指定端口号（可选）</label>
+                    <input type="text" id="realityPort" placeholder="留空：端口随机">
+                </div>
+                <div class="form-group">
+                    <label class="field-label">SNI域名</label>
+                    <input type="text" id="realityDest" value="addons.mozilla.org">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 安装命令输出 -->
+    <div class="output-box">
+        <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; display: block;">请先登录SSH终端 确保复制成功！:</label>
+        <pre id="cmdOutput">bash &lt;(curl -Ls https://raw.githubusercontent.com/easonhunt7/singboXray/main/xraygo-naive.sh)</pre>
+        <div class="btn-container">
+            <div class="btn-wrapper">
+                <button type="button" class="btn" id="copyBtn">📋 一键复制安装命令</button>
+                <span id="copyToast" class="toast">✓ 已复制</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggles = document.querySelectorAll('.proto-toggle');
+    toggles.forEach(function(chk) {
+        chk.addEventListener('change', function() {
+            const section = this.closest('.protocol-section');
+            const secName = section.getAttribute('data-sec');
+            if (this.checked) {
+                section.classList.add('active');
+                if (secName === 'naive') {
+                    document.getElementById('naiveH2').checked = true;
+                    document.getElementById('naiveH3').checked = true;
+                } else if (secName === 'xhttp') {
+                    document.getElementById('xhttpH2').checked = true;
+                    document.getElementById('xhttpH3').checked = true;
+                }
+            } else {
+                section.classList.remove('active');
+            }
+            updateCommand();
+        });
+    });
+
+    const allInputs = document.querySelectorAll('input, select');
+    allInputs.forEach(function(el) {
+        el.addEventListener('input', updateCommand);
+        el.addEventListener('change', updateCommand);
+    });
+
+    function updateCommand() {
+        let cmd = "bash <(curl -Ls https://raw.githubusercontent.com/easonhunt7/singboXray/main/xraygo-naive.sh)";
+        let params = [];
+
+        // 1. NaiveProxy
+        if (document.getElementById('chkNaive').checked) {
+            let nh2 = document.getElementById('naiveH2').checked;
+            let nh3 = document.getElementById('naiveH3').checked;
+            let nh2Port = document.getElementById('naiveH2Port').value.trim();
+            let nh3Port = document.getElementById('naiveH3Port').value.trim();
+            let nDomain = document.getElementById('naiveDomain').value.trim();
+            let nApi = document.getElementById('naiveApi').value.trim();
+            
+            if (nh2) {
+                params.push(`naive-h2="${nh2Port}"`);
+            }
+            if (nh3) {
+                params.push(`naive-h3="${nh3Port}"`);
+            }
+            if (nDomain) {
+                params.push(`naive-domain="${nDomain}"`);
+            }
+            if (nApi) {
+                params.push(`naive-api="${nApi}"`);
+            }
+        }
+
+        // 2. xHTTP 直连
+        if (document.getElementById('chkXhttp').checked) {
+            let xh2 = document.getElementById('xhttpH2').checked;
+            let xh3 = document.getElementById('xhttpH3').checked;
+            let xh2Port = document.getElementById('xhttpH2Port').value.trim();
+            let xh3Port = document.getElementById('xhttpH3Port').value.trim();
+            let xDomain = document.getElementById('xhttpDomain').value.trim();
+            let xApi = document.getElementById('xhttpApi').value.trim();
+            
+            if (xh2) {
+                params.push(`xhttp-h2="${xh2Port}"`);
+            }
+            if (xh3) {
+                params.push(`xhttp-h3="${xh3Port}"`);
+            }
+            if (xDomain) {
+                params.push(`xhttp-domain="${xDomain}"`);
+            }
+            if (xApi) {
+                params.push(`xhttp-api="${xApi}"`);
+            }
+        }
+
+        // 3. xHTTP-Argo
+        if (document.getElementById('chkArgo').checked) {
+            let aProto = document.getElementById('argoProtocol').value;
+            let aPort = document.getElementById('argoPort').value.trim() || '8001';
+            let aDomain = document.getElementById('argoDomain').value.trim();
+            let aToken = document.getElementById('argoToken').value.trim();
+
+            params.push(`argo-protocol="${aProto}"`);
+            params.push(`argo-port="${aPort}"`);
+            if (aDomain) params.push(`argo-domain="${aDomain}"`);
+            if (aToken) params.push(`argo-token="${aToken}"`);
+        }
+
+        // 4. VLESS-TCP-Reality
+        if (document.getElementById('chkReality').checked) {
+            const dest = document.getElementById('realityDest').value.trim() || 'microsoft.com';
+            const rPort = document.getElementById('realityPort').value.trim();
+            params.push(`reality-dest="${dest}"`);
+            params.push(`reality-port="${rPort}"`);
+        }
+
+        if (params.length > 0) {
+            cmd += " " + params.join(" ");
+        }
+
+        document.getElementById('cmdOutput').innerText = cmd;
+    }
+
+    const copyBtn = document.getElementById('copyBtn');
+    const toast = document.getElementById('copyToast');
+    let toastTimer = null;
+
+    function showToast() {
+        toast.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function() {
+            toast.classList.remove('show');
+        }, 1500);
+    }
+
+    copyBtn.addEventListener('click', function() {
+        const text = document.getElementById('cmdOutput').innerText;
+        
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(function() {
+                showToast();
+            }).catch(function() {
+                fallbackCopy(text);
+            });
+        } else {
+            fallbackCopy(text);
+        }
+    });
+
+    function fallbackCopy(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showToast();
+        } catch (err) {
+            console.error('复制失败:', err);
+        }
+        document.body.removeChild(textArea);
+    }
+});
+</script>
+
+</body>
+</html>
