@@ -5,118 +5,91 @@
 </div>
 <br>
 
-## Xray-go 极速/防QoS/抗封锁 部署方案 （VPS服务器版）
-**XHTTP（H3直连）**/ **XHTTP-Argo 双模UDP隧道** / **VLESS-TCP-REALITY Vision**
-<br>
-
-<p align="left" style="margin: 20px 0 16px 0;">
-  <img src="https://img.shields.io/badge/Ubuntu-20.04%2B-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu">
-  <img src="https://img.shields.io/badge/Debian-11%2B-A81D33?style=flat-square&logo=debian&logoColor=white" alt="Debian">
-  <img src="https://img.shields.io/badge/CentOS-7%2F8%2F9-26252D?style=flat-square&logo=centos&logoColor=white" alt="CentOS">
-  <img src="https://img.shields.io/badge/Alpine-Linux-0D5BE1?style=flat-square&logo=alpine&logoColor=white" alt="Alpine">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License">
-</p>
-
-
+## Xray-go 极速/防QoS/抗封锁部署方案（VPS 服务器版）
+**XHTTP（H3直连）** / **XHTTP-Argo 隧道** / **VLESS-TCP-REALITY Vision**
 
 ---
 
 ## 🚀 核心特性
 
-*   **⚡ XHTTP H3 直连**：上下行流量分离，使用 HTTP/3 标准UDP传输，实现极低延迟与高并发吞吐。速度对标TUIC协议，但不易被运营商QoS。
-*   **☁️ Argo 双模UDP隧道**：隧道protocol选择quic，客户端设置H3，让Argo隧道全段跑UDP！服务器 IP 隐藏、Cloudflare CDN 加速及零端口暴露。
-*   **🔒 VLESS-TCP-REALITY Vision**：（最新封443端口提醒，建议备选或放弃！）“曾经” 是经典的抗封锁协议，完美伪装 TLS 流量，Vision流控，免疫主动探测。
-*   **✅ IPv6支持**：已添加 Cloudflare 备选安全代理下载，完美支持IPv6机型。
+- **XHTTP H3 直连**：使用 HTTP/3（QUIC）传输。
+- **XHTTP + Argo**：通过 Cloudflare Tunnel 转发至本机 Xray 服务，隐藏源站 IP。
+- **VLESS-TCP-REALITY Vision**：无需域名的备用连接方式。
+- **Alpine/OpenRC 支持**：安装脚本支持 Alpine Linux 3.24.4 的 OpenRC 服务管理。
 
----
-
-## 📦 说明
-
-| 协议组合 | 核心优势 | 适用场景 |
-| :--- | :--- | :--- |
-| **XHTTP + H3 (QUIC)** | ✅HTTP/3 标准 UDP 传输，不易被QoS | 主力高速直连协议 |
-| **XHTTP + Argo 双模UDP隧道** | ✅Argo隧道变身UDP协议！隐藏真实 IP，内网穿透，支持优选域名/ip | IP 被墙或极限封锁网络环境 |
-| **VLESS + TCP + REALITY Vision** | ✅无域名要求 | 晚高峰易受TCP拥塞影响，建议备选 |
-
----
 ## 💻 系统支持
 
-
-| 系统平台 | 版本要求 | 状态 / 备注 |
+| 系统平台 | 版本要求 | 服务管理 |
 | :--- | :--- | :--- |
-| **Ubuntu** | 20.04+ | ✅ 支持 |
-| **Debian** | 11+ | ✅ 支持 |
-| **CentOS** | 7 / 8 / 9 Stream | ✅ 支持（自动适配防火墙） |
-| **Alpine** | 3.16+ | ✅ 支持（基于 musl 静态编译运行） |
-<br>
-
-**极简Ubuntu一键更新：**
-```bash
-apt update && apt install -y curl bash
-```
-<br>
-
-**Alpine一键更新：**
-
-```bash
-apk update && apk add curl bash
-```
-<br>
-
+| Ubuntu | 20.04+ | systemd |
+| Debian | 11+ | systemd |
+| CentOS | 7 / 8 / 9 Stream | systemd |
+| Alpine Linux | 3.16+（含 3.24.4） | OpenRC |
 
 ## ⚙️ 快速安装
 
-使用 SSH 登录服务器，以 `root` 权限运行以下指令 **（如需设置变量，建议先复制到记事本中再修改）**：
+以 `root` 登录服务器。Alpine 3.24.4 可先安装 Bash、curl：
 
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/xray-go.sh) reality"n" h3"y" argo protocol"http2" port"8001" domain"" token""
- ```
-<br>
+```sh
+apk update && apk add --no-cache bash curl
+```
 
-💡 **末尾""双引号中 变量填写说明：**
+下载并运行此分支的部署脚本（将域名、Token 替换为自己的 Cloudflare Tunnel 配置）：
 
-<br>
+```sh
+curl -fsSL -o /tmp/xray-go.sh https://raw.githubusercontent.com/lihuabing1/Xray-go/fix/alpine-argo-openrc/xray-go.sh
+bash /tmp/xray-go.sh reality"n" h3"y" protocol"quic" port"8001" domain"tunnel.example.com" token"YOUR_TUNNEL_TOKEN"
+```
 
-**reality"n"** = 放弃部署 reality 协议
-<br>
+若不启用 Argo，可将 `domain` 和 `token` 留空，或只配置 H3/Reality：
 
-**h3"y"** = 部署 XHTTP H3 直连协议+随机端口； **h3"12345"** = XHTTP H3 部署在12345端口； **h3"n"** = 放弃部署 XHTTP H3 协议
-<br>
+```sh
+bash /tmp/xray-go.sh reality"n" h3"y"
+```
 
-**argo protocol"http2"** = 默认部署http2隧道+4条连接；可改成quic，默认1条连接 **（http2 还是 quic ？建议在实测后，择优选择）**
-<br>
+### 参数说明
 
-**port"8001"** = 8001 与Cloudflare Tunnel 服务URL末尾端口一致
-<br>
+- `reality"n"`：不启用 Reality；也可写 `reality"12345"` 指定端口。
+- `h3"y"`：启用 H3 并随机分配端口；也可写 `h3"12345"` 指定端口，或 `h3"n"` 禁用。
+- `protocol"quic"`：Cloudflare Tunnel 到源站的协议，可选 `quic`、`http2` 或 `auto`。
+- `port"8001"`：Xray 在本机监听的 Argo 回源端口。
+- `domain"tunnel.example.com"`：Cloudflare Tunnel 配置的完整 Public Hostname。
+- `token"YOUR_TUNNEL_TOKEN"`：该 Tunnel 的 Token。请勿公开分享。
 
-**domain""** = Cloudflare Tunnel 路由设置的完整主机名
-<br>
+### Cloudflare Tunnel 回源设置（Argo 域名无法连接时请检查）
 
-**token ""** = 固定隧道 Token
-<br>
+在 Cloudflare Zero Trust 的 Tunnel 中为该主机名配置 Public Hostname/DNS 路由，并将 Service 指向：
 
----
+```text
+http://127.0.0.1:8001
+```
 
- ## 🗑️ 一键卸载
+端口必须与脚本里的 `port"8001"` 一致；回源协议选择 **HTTP**，不要选 HTTPS。确认 Tunnel Token 属于该 Tunnel，并且主机名已绑定到它。部署后可在 Alpine 上检查服务状态：
 
-部署方案未达预期？请使用以下指令卸载：
+```sh
+rc-service xray status
+rc-service cloudflared status
+```
 
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/eishare/Xray-go/main/uninstall.sh)
+Argo 域名的 DNS 和 Cloudflare Tunnel 路由需要在 Cloudflare 侧正确配置；仅填写域名和 Token 不会自动创建主机名路由。
+
+## 🗑️ 卸载
+
+```sh
+curl -fsSL -o /tmp/xray-uninstall.sh https://raw.githubusercontent.com/lihuabing1/Xray-go/fix/alpine-argo-openrc/uninstall.sh
+bash /tmp/xray-uninstall.sh
 ```
 
 ---
 
 <details>
-<summary><b>⚖️ 免责声明 / Disclaimer (点击展开)</b></summary>
+<summary><b>⚖️ 免责声明 / Disclaimer</b></summary>
 
-1. **使用范围**：本项目仅供网络研究、技术交流与学习使用，**严禁用于任何商业用途或违法违规行为**。
-2. **合规提醒**：使用者须严格遵守当地法律法规。因违规使用产生的法律责任与开发者无关。
-3. **滥用风险**：请遵守各平台TOS，若因违规或滥用导致账号封禁、数据丢失等后果，由使用者自行承担。
-4. **开源约束**：任何人或组织在使用、二次开发或分发本项目时，即代表已知晓并同意本声明的所有条款。
+1. 本项目仅供网络研究、技术交流与学习使用。请遵守当地法律法规及相关平台服务条款。
+2. 使用者需自行承担使用本项目产生的责任与风险。
+3. 因违规使用导致的账号封禁、数据丢失或其他损失，由使用者自行承担。
 
 </details>
-
 
 ---
 
